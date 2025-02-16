@@ -3,13 +3,21 @@
 This script fetches and displays hourly weather forecasts from the National Weather Service API.
 
 ## Features
+
 - Retrieves hourly forecasts based on latitude and longitude.
 - Displays temperature, forecast description, and timing.
 - Allows customization of forecast intervals and number of periods to display.
 
+
 ## Prerequisites
-- Python 3.x
-- `requests` library (install via `pip install requests`)
+
+- **Python 3.x** (Ensure Python is installed. Check with `python --version`.)
+- **Requests library** (Install via `pip install requests`.)
+- **Internet connection** (Required to fetch forecast data.)
+- **Timezone awareness** (Forecast timestamps are in UTC.)
+- **User-Agent update** (Before using, update the `User-Agent` header with your email in `forecast.py`.)
+- **Standard Libraries** (No installation needed: `argparse`, `sys`, `datetime`.)
+
 
 ## Installation
 Clone the repository and navigate to the project directory:
@@ -27,10 +35,12 @@ python forecast.py <latitude> <longitude> [--interval INTERVAL] [--periods PERIO
 ```
 
 Example:
+
 ```bash
 python forecast.py 40.4406 -79.9959 --interval 2 --periods 12
 ```
 This fetches a 12-hour forecast for Pittsburgh, PA with a 2-hour interval between each entry.
+
 
 ## Arguments
 | Argument       | Description                                      | Default |
@@ -51,6 +61,7 @@ Mon 12 PM: Mostly Sunny, 36°F.
 ...
 ```
 
+
 ## API Information
 This script uses the National Weather Service API (https://www.weather.gov/documentation/services-web-api). A custom User-Agent header is required to comply with API guidelines.
 
@@ -60,6 +71,7 @@ Before using the script, update the `User-Agent` header with your own email in `
 ```python
 headers = {"User-Agent": "forecaster (your-email@example.com)"}  # Change this email
 ```
+
 
 ## Error Handling
 * If the API request fails, an error message is displayed and the script exits.
